@@ -26,13 +26,6 @@ public class Role {
 	@Column(length = 60)
 	private RoleName name;
 
-	public Role() {
-	}
-
-	public Role(RoleName name) {
-		this.name = name;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +40,15 @@ public class Role {
 
 	public void setName(RoleName name) {
 		this.name = name;
+	}
+
+	public Role(RoleName name) {
+		super();
+		this.name = name;
+	}
+
+	public Role() {
+		super();
 	}
 
 }

@@ -1,9 +1,12 @@
 package com.runadium.runadoc.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -17,8 +20,9 @@ public class Etablissement {
 	
 	private String nomEtablissement;
 
-	
-	
+	 @OneToMany(mappedBy="id")
+	    private Set<RendezVous> rendezVous;
+
 	public Long getId() {
 		return id;
 	}
@@ -35,17 +39,22 @@ public class Etablissement {
 		this.nomEtablissement = nomEtablissement;
 	}
 
-	public Etablissement(Long id, String nomEtablissement) {
+	public Set<RendezVous> getRendezVous() {
+		return rendezVous;
+	}
+
+	public void setRendezVous(Set<RendezVous> rendezVous) {
+		this.rendezVous = rendezVous;
+	}
+
+	public Etablissement(String nomEtablissement, Set<RendezVous> rendezVous) {
 		super();
-		this.id = id;
 		this.nomEtablissement = nomEtablissement;
+		this.rendezVous = rendezVous;
 	}
 
 	public Etablissement() {
 		super();
-	} 
+	}
 	
-	
-	
-
 }

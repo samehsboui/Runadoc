@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "rendezVous")
+@Table(name = "rendezvous")
 public class RendezVous {
 
 	@Id
@@ -24,7 +24,7 @@ public class RendezVous {
 	@ManyToOne
     @JoinColumn(name="etablissement_id", nullable=false)
     private Etablissement etablissement;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -33,16 +33,31 @@ public class RendezVous {
 		this.id = id;
 	}
 
-	public RendezVous(Long id) {
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Etablissement getEtablissement() {
+		return etablissement;
+	}
+
+	public void setEtablissement(Etablissement etablissement) {
+		this.etablissement = etablissement;
+	}
+
+	public RendezVous(User user, Etablissement etablissement) {
 		super();
-		this.id = id;
+		this.user = user;
+		this.etablissement = etablissement;
 	}
 
 	public RendezVous() {
 		super();
 	}
-	
-	
 	
 	
 }

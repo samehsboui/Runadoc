@@ -186,12 +186,11 @@ public class User {
 	}
 
 
-	public User(Long id, @NotBlank @Size(min = 3, max = 50) String fullName,
+	public User(@NotBlank @Size(min = 3, max = 50) String fullName,
 			@NotBlank @Size(min = 3, max = 50) String username, @NotBlank @Size(max = 50) @Email String email,
 			@NotBlank @Size(min = 6, max = 100) String password, Date createdAt, Date updatedAt, byte[] image,
 			Set<Role> roles, Set<RendezVous> rendezVous, Set<Role> etablissements) {
 		super();
-		this.id = id;
 		this.fullName = fullName;
 		this.username = username;
 		this.email = email;
@@ -208,8 +207,5 @@ public class User {
 	public User() {
 		super();
 	}
-		
-		
-	
 
 }
